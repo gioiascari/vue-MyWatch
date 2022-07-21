@@ -3,9 +3,11 @@
     <div class="description">
       <!-- title  -->
       <div :key="name" class="title">
-        <h1>My Watch</h1>
+        <h4>My Watch</h4>
         <!-- /title  -->
-        <h4>Choose {{ name }} Color</h4>
+        <h1>
+          Choose <strong>{{ name | capitalize }} </strong>Color
+        </h1>
       </div>
     </div>
   </div>
