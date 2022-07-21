@@ -12,12 +12,12 @@ const routes = [
     component: HomeComponent,
     props: { name: "face" },
   },
-  //   {
-  //     path: "/:name",
-  //     name: "Step",
-  //     component: HomeComponent,
-  //     props: true,
-  //   },
+  {
+    path: "/:name",
+    name: "Step",
+    component: HomeComponent,
+    props: true,
+  },
 ];
 
 const router = new VueRouter({
