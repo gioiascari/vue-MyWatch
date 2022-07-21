@@ -1,7 +1,7 @@
 //Import
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../components/Home.vue";
+import HomeComponent from "../components/HomeComponent";
 
 Vue.use(VueRouter);
 //Routes's name
@@ -9,15 +9,15 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: HomeComponent,
     props: { name: "face" },
   },
-  {
-    path: "/:name",
-    name: "Step",
-    component: Home,
-    props: true,
-  },
+  //   {
+  //     path: "/:name",
+  //     name: "Step",
+  //     component: HomeComponent,
+  //     props: true,
+  //   },
 ];
 
 const router = new VueRouter({
