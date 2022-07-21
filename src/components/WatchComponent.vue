@@ -59,13 +59,13 @@
       <rect class="cls-5" height="117.14" width="10.89" x="209.36" />
     </g>
     <g id="hands">
-      <g id="hour">
+      <g id="hour" :style="getHours">
         <line class="cls-6" x1="214.8" y1="914.47" x2="214.8" y2="775.86" />
       </g>
-      <g id="minute">
+      <g id="minute" :style="getMinutes">
         <line class="cls-6" x1="214.8" y1="914.47" x2="214.8" y2="749.97" />
       </g>
-      <g id="second">
+      <g id="second" :style="getSeconds">
         <line class="cls-7" x1="214.8" y1="914.47" x2="214.8" y2="749.97" />
       </g>
       <g id="circle">
@@ -87,6 +87,13 @@
 <script>
 export default {
   name: "WatchComponent",
+  data() {
+    return {
+      minutes: 0,
+      seconds: 0,
+      hours: 0,
+    };
+  },
   computed: {
     //Funzione che restituisce valori all'interno di variabili css
     cssVars() {
@@ -96,6 +103,18 @@ export default {
         "--bg-face": this.$store.state.colors.face.selected.color,
         "--bg-hands": this.$store.state.colors.hands.selected.color,
       };
+    },
+    getSeconds: function () {
+      let deg = (this.seconds * 360) / 60;
+      return `transform: rotate(${deg}deg);`;
+    },
+    getMinutes: function () {
+      let deg = (this.minutes * 360) / 60;
+      return `transform: rotate(${deg}deg);`;
+    },
+    getHours: function () {
+      let deg = (this.hours * 360) / 12 + (this.minutes * 60) / 360;
+      return `transform: rotate(${deg}deg);`;
     },
   },
 };
