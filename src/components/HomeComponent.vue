@@ -8,15 +8,33 @@
         <h1>
           Choose <strong>{{ name | capitalize }} </strong>Color
         </h1>
+        <WatchComponent :style="cssVars" id="watch"></WatchComponent>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import WatchComponent from "../components/WatchComponent.vue";
 export default {
   name: "HomeComponent",
+  components: {
+    WatchComponent,
+  },
   props: ["name"],
+  computed: {
+    //a seconda della rotta prendiamo valori diversi
+    cssVars() {
+      return {
+        "--position": this.$store.state.animation[this.name].position,
+        "--top": this.$store.state.animation[this.name].top,
+        "--right": this.$store.state.animation[this.name].right,
+        "--transform": this.$store.state.animation[this.name].transform,
+        "--width": this.$store.state.animation[this.name].width,
+        "--color-save": this.$store.state.colors.face.selected.color,
+      };
+    },
+  },
   filters: {
     //Funzione che restituisce lo stesso valore con la lettera maiuscola
     capitalize: function (value) {
@@ -26,4 +44,18 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.btn-save {
+  color: var(--color-save);
+}
+//per poter usare le var() queste regole vanno nel componente
+#watch {
+  position: var(--position);
+  top: var(--top);
+  right: var(--right);
+  transform: var(--transform);
+  width: var(--width);
+  z-index: 2;
+  transition: all 0.7s;
+}
+</style>
