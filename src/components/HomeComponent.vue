@@ -8,10 +8,10 @@
         <h1>
           Choose <strong>{{ name | capitalize }} </strong>Color
         </h1>
-        <NavBar></NavBar>
-        <WatchComponent :style="cssVars" id="watch"></WatchComponent>
       </div>
     </div>
+    <NavBar :name="name" />
+    <WatchComponent :style="cssVars" id="watch" />
   </div>
 </template>
 
@@ -21,8 +21,8 @@ import NavBar from "../components/NavBar.vue";
 export default {
   name: "HomeComponent",
   components: {
-    WatchComponent,
     NavBar,
+    WatchComponent,
   },
   props: ["name"],
   computed: {
@@ -48,6 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../style/utilities";
 .btn-save {
   color: var(--color-save);
 }
