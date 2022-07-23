@@ -1,24 +1,4 @@
-# mywatch
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+https://user-images.githubusercontent.com/96299274/180620950-1022f5f2-3f34-443a-a77a-873fdd948fbd.mp4
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
