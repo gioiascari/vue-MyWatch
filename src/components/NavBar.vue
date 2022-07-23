@@ -16,7 +16,9 @@
       <!--NavBar-->
       <ul class="links">
         <li>
-          <router-link v-if="getPrev" :to="`/${getPrev}`">Prev</router-link>
+          <router-link v-if="getPrev" :to="`/${getPrev}`" class="m-2"
+            >Prev</router-link
+          >
           <router-link v-if="getNext" :to="`/${getNext}`">Next</router-link>
           <!--Router link definisce il componente target a cui rimandare l’utente tramite la prop to -->
         </li>

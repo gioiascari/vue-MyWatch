@@ -149,7 +149,7 @@ export default new Vuex.Store({
       commit("setNext", playload);
     },
     setStep({ commit }, playload) {
-      commit("setCStep", playload);
+      commit("setStep", playload);
     },
   },
   modules: {},
