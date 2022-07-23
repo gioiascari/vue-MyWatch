@@ -9,6 +9,7 @@
           Choose <strong>{{ name | capitalize }} </strong>Color
         </h1>
       </div>
+      <SelectedColor />
     </div>
     <NavBar :name="name" />
     <WatchComponent :style="cssVars" id="watch" />
@@ -18,11 +19,13 @@
 <script>
 import WatchComponent from "../components/WatchComponent.vue";
 import NavBar from "../components/NavBar.vue";
+import SelectedColor from "../components/SelectedColor.vue";
 export default {
   name: "HomeComponent",
   components: {
     NavBar,
     WatchComponent,
+    SelectedColor,
   },
 
   props: ["name"],
