@@ -6,9 +6,9 @@
           :color="color"
           v-for="(color, i) in getColors"
           :key="i"
-          @click="changeColor(name, color.name, color.color)"
+          @click="changeColor(name, color.color, color.name)"
         >
-          <a @click.prevent="changeColor(name, color.name, color.color)">
+          <a @click.prevent="changeColor(name, color.color, color.name)">
             <span>{{ color.name }}</span></a
           ></ColorComponent
         >
@@ -35,8 +35,9 @@ export default {
   },
   props: ["name"],
   computed: {
-    getColors: function () {
-      return this.$store.state.colors[this.name].available;
+    getColors() {
+      // return this.$store.state.colors[this.name].available;
+      return this.$store.getters.getAvailableColors(this.name);
     },
     next: function () {
       //funzione che va a riprendere dallo store il valore di next

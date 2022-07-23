@@ -111,6 +111,35 @@ export default new Vuex.Store({
       state.stepsActivated.push(playload);
     },
   },
+  getters: {
+    getAvailableColors(state) {
+      return (name) => {
+        let colors = state.colors[name].available;
+        let faceColor = state.colors.face.selected.name;
+
+        if (name === "hands") {
+          colors = colors.filter((value) => {
+            return value.name !== faceColor;
+          });
+        }
+
+        if (name !== "face") {
+          let removeColor;
+          if (faceColor === "Pink") {
+            removeColor = "Green";
+          } else if (faceColor === "Green") {
+            removeColor = "Pink";
+          }
+
+          colors = colors.filter((v) => {
+            return v.name !== removeColor;
+          });
+        }
+
+        return colors;
+      };
+    },
+  },
   actions: {
     //Le actions richiamano le mutations dello state
     setColor({ commit }, playload) {
