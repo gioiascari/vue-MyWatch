@@ -1,8 +1,15 @@
 <template>
   <div id="nav">
-    <div class="colors">
-      <div :color="color" v-for="(color, i) in getColors" :key="i">
-        [{{ color.name }} - {{ color.color }}]
+    <div class="nav">
+      <div class="colors">
+        <div
+          :color="color"
+          v-for="(color, i) in getColors"
+          :key="i"
+          @click="changeColor(name, color.name, color.color)"
+        >
+          [{{ color.name }} - {{ color.color }}]
+        </div>
       </div>
     </div>
   </div>
@@ -15,6 +22,12 @@ export default {
   computed: {
     getColors: function () {
       return this.$store.state.colors[this.name].available;
+    },
+  },
+  methods: {
+    //Funzione che mi permette di cambiare colore al click
+    changeColor: function (name, color, colorName) {
+      this.$store.dispatch("setColor", { name, color, colorName });
     },
   },
 };
