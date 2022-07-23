@@ -83,6 +83,7 @@ export default {
 @import "../style/utilities";
 .btn-save {
   color: var(--color-save);
+  text-decoration: none;
 }
 //per poter usare le var() queste regole vanno nel componente
 #watch {

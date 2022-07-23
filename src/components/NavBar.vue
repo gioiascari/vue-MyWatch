@@ -1,6 +1,11 @@
 <template>
   <div id="nav">
-    <div class="nav">
+    <!-- save -->
+    <div v-if="name === 'save'">
+      <router-link class="modify" :to="`/${getPrev}`">Modify</router-link>
+    </div>
+    <!-- /save -->
+    <div class="nav" v-else-if="name !== 'buy'">
       <div class="colors" v-if="checkColors">
         <ColorComponent
           :color="color"
