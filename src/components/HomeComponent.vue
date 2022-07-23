@@ -5,9 +5,17 @@
       <div :key="name" class="title">
         <h4>My Watch</h4>
         <!-- /title  -->
-        <h1>
+        <h2 v-if="name !== 'save' && name !== 'buy'">
           Choose <strong>{{ name | capitalize }} </strong>Color
-        </h1>
+        </h2>
+        <!-- salvataggio -->
+        <div v-else-if="name === 'save'">
+          <h2>Got It!</h2>
+          <router-link to="/buy" :style="cssVars" class="btn-save"
+            >Save</router-link
+          >
+        </div>
+        <!-- /salvataggio -->
       </div>
       <SelectedColor />
     </div>
