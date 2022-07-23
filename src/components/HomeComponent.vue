@@ -22,11 +22,11 @@
             Great, <br />
             time to buy
           </h2>
-          <a @click.prevent="goHome">Reset</a>
+          <a @click.prevent="goHome" style="cursor: pointer">Reset</a>
         </div>
         <!-- /buy -->
       </div>
-      <SelectedColor />
+      <SelectedColor v-if="name !== 'buy'" />
     </div>
     <NavBar :name="name" />
     <WatchComponent :style="cssVars" id="watch" />
@@ -66,7 +66,7 @@ export default {
     },
   },
   methods: {
-    goHome: function () {
+    goHome() {
       this.$store.dispatch("resetColors");
       this.$store.dispatch("resetSteps");
 

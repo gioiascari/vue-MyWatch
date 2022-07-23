@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <div class="main">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -12,9 +14,8 @@
   font-family: "Raleway";
   font-weight: 400;
   height: 100vh;
-  min-height: 768px;
   overflow: hidden;
-  background-image: url("./assets/background.svg");
+  background-image: url("./assets/bg.jpg");
   background-size: cover;
 }
 </style>
