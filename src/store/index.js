@@ -104,6 +104,12 @@ export default new Vuex.Store({
       state.colors[playload.name].selected.color = playload.color;
       state.colors[playload.name].selected.name = playload.colorName;
     },
+    setNext(state, playload) {
+      state.next = playload;
+    },
+    setStep(state, playload) {
+      state.stepsActivated.push(playload);
+    },
   },
   actions: {
     setColor({ commit }, playload) {
