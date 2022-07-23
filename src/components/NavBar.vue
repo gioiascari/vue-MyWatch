@@ -2,7 +2,9 @@
   <div id="nav">
     <!-- save -->
     <div v-if="name === 'save'">
-      <router-link class="modify" :to="`/${getPrev}`">Modify</router-link>
+      <button type="button" class="btn btn-primary">
+        <router-link class="modify" :to="`/${getPrev}`">Modify</router-link>
+      </button>
     </div>
     <!-- /save -->
     <div class="nav" v-else-if="name !== 'buy'">

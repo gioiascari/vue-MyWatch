@@ -87,10 +87,6 @@ a {
       h2 {
         font-size: 460%;
       }
-      a {
-        font-size: 200%;
-        line-height: 200%;
-      }
     }
     #selectedColor {
       margin: 5% 5% 20px 5%;
@@ -130,4 +126,7 @@ a {
     width: 30%;
     text-decoration: none;
   }
+}
+a.modify {
+  color: white;
 }

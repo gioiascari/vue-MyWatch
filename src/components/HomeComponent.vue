@@ -11,7 +11,7 @@
         <!-- save -->
         <div v-else-if="name === 'save'">
           <h2>Got It!</h2>
-          <router-link to="/buy" :style="cssVars" class="btn-save"
+          <router-link to="/buy" :style="cssVars" class="btn btn-save"
             >Save</router-link
           >
         </div>
@@ -85,8 +85,12 @@ export default {
 <style lang="scss">
 @import "../style/utilities";
 .btn-save {
-  color: var(--color-save);
   text-decoration: none;
+  &:hover {
+    background-color: var(--color-save);
+    border-color: var(--color-save);
+    color: white;
+  }
 }
 //per poter usare le var() queste regole vanno nel componente
 #watch {
