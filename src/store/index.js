@@ -99,7 +99,16 @@ export default new Vuex.Store({
       },
     },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    setColor(state, playload) {
+      state.colors[playload.name].selected.color = playload.color;
+      state.colors[playload.name].selected.name = playload.colorName;
+    },
+  },
+  actions: {
+    setColor({ commit }, playload) {
+      commit("setColor", playload);
+    },
+  },
   modules: {},
 });
