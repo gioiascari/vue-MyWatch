@@ -8,7 +8,7 @@
           :key="i"
           @click="changeColor(name, color.name, color.color)"
         >
-          [{{ color.name }} - {{ color.color }}]
+          {{ color.name }} - {{ color.color }}
         </div>
       </div>
     </div>
