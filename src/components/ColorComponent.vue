@@ -19,4 +19,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.color {
+  width: 50px;
+  height: 50px;
+  background-color: var(--bg);
+}
+</style>

@@ -3,8 +3,9 @@
 //FontSource
 @import "@fontsource/raleway/400.css";
 
-#nav {
+.nav {
   display: flex;
+  width: 100%;
   align-items: center;
   position: absolute;
   bottom: 10%;
@@ -19,6 +20,19 @@
       display: inline-block;
       margin: 0 10px;
       font-size: 150%;
+      a {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        &:hover,
+        &:active,
+        &:focus {
+          color: grey;
+        }
+        &.modify {
+          color: grey;
+        }
+      }
     }
   }
 }
