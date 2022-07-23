@@ -32,6 +32,10 @@ export default {
     getColors: function () {
       return this.$store.state.colors[this.name].available;
     },
+    next: function () {
+      //funzione che va a riprendere dallo store il valore di next
+      return this.$store.state.next;
+    },
     getNext: function () {
       //se la posizione di questo step in cui ci troviamo è minore della lunghezza di steps e se this.next è true allora andiamo a prendere il valore che ci interessa
       return this.$store.state.steps.indexOf(this.name) <
@@ -54,6 +58,10 @@ export default {
     //Funzione che mi permette di cambiare colore al click
     changeColor: function (name, color, colorName) {
       this.$store.dispatch("setColor", { name, color, colorName });
+      if (!this.$store.state.stepsActivated.includes(name)) {
+        this.$store.dispatch("setStep", name);
+      }
+      this.$store.dispatch("setNext", true);
     },
   },
 };

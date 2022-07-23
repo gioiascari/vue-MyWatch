@@ -24,7 +24,14 @@ export default {
     NavBar,
     WatchComponent,
   },
+
   props: ["name"],
+  watch: {
+    $route() {
+      //ad ogni cambio di rotta setto next false così al momento di cambio di rotta next è di nuovo false
+      this.$store.dispatch("setNext", false);
+    },
+  },
   computed: {
     //a seconda della rotta prendiamo valori diversi
     cssVars() {
