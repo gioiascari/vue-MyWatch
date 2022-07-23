@@ -110,6 +110,24 @@ export default new Vuex.Store({
     setStep(state, playload) {
       state.stepsActivated.push(playload);
     },
+    resetColors: function (state) {
+      //face
+      state.colors["face"].selected.name = faceDefault.name;
+      state.colors["face"].selected.color = faceDefault.color;
+      //strap
+      state.colors["strap"].selected.name = strapDefault.name;
+      state.colors["strap"].selected.color = strapDefault.color;
+      //loop
+      state.colors["loop"].selected.name = strapLoopDefault.name;
+      state.colors["loop"].selected.color = strapLoopDefault.color;
+      //hands
+      state.colors["hands"].selected.name = handsDefault.name;
+      state.colors["hands"].selected.color = handsDefault.color;
+    },
+    //Funzione che va a disattivare gli steps che abbiamo attivato
+    resetSteps: function (state) {
+      state.stepsActivated.splice(0, state.stepsActivated.length);
+    },
   },
   getters: {
     getAvailableColors(state) {
@@ -142,14 +160,25 @@ export default new Vuex.Store({
   },
   actions: {
     //Le actions richiamano le mutations dello state
+    //Color
     setColor({ commit }, playload) {
       commit("setColor", playload);
     },
+    //Next
     setNext({ commit }, playload) {
       commit("setNext", playload);
     },
+    //Step
     setStep({ commit }, playload) {
       commit("setStep", playload);
+    },
+    //Reset Color
+    resetColors({ commit }) {
+      commit("resetColors");
+    },
+    //Reset Steps
+    resetSteps({ commit }) {
+      commit("resetSteps");
     },
   },
   modules: {},
