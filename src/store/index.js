@@ -112,8 +112,15 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    //Le actions richiamano le mutations dello state
     setColor({ commit }, playload) {
       commit("setColor", playload);
+    },
+    setNext({ commit }, playload) {
+      commit("setNext", playload);
+    },
+    setStep({ commit }, playload) {
+      commit("setCStep", playload);
     },
   },
   modules: {},
