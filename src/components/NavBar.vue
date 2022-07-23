@@ -1,15 +1,17 @@
 <template>
   <div id="nav">
     <div class="nav">
-      <div class="colors">
-        <div
+      <div class="colors" v-if="checkColors">
+        <ColorComponent
           :color="color"
           v-for="(color, i) in getColors"
           :key="i"
           @click="changeColor(name, color.name, color.color)"
         >
-          {{ color.name }} - {{ color.color }}
-        </div>
+          <a @click.prevent="changeColor(name, color.name, color.color)">
+            <span>{{ color.name }}</span></a
+          ></ColorComponent
+        >
       </div>
       <!--NavBar-->
       <ul class="links">
@@ -25,8 +27,12 @@
 </template>
 
 <script>
+import ColorComponent from "../components/ColorComponent.vue";
 export default {
   name: "NavBar",
+  components: {
+    ColorComponent,
+  },
   props: ["name"],
   computed: {
     getColors: function () {
@@ -52,6 +58,9 @@ export default {
             this.$store.state.steps.indexOf(this.name) - 1
           ]
         : false;
+    },
+    checkColors: function () {
+      return this.$store.state.colors[this.name];
     },
   },
   methods: {
