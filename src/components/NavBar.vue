@@ -11,6 +11,15 @@
           {{ color.name }} - {{ color.color }}
         </div>
       </div>
+      <!--NavBar-->
+      <ul class="links">
+        <li>
+          <router-link v-if="getPrev" :to="`/${getPrev}`">Prev</router-link>
+          <router-link v-if="getNext" :to="`/${getNext}`">Next</router-link>
+          <!--Router link definisce il componente target a cui rimandare l’utente tramite la prop to -->
+        </li>
+      </ul>
+      <!--/NavBar-->
     </div>
   </div>
 </template>
@@ -22,6 +31,23 @@ export default {
   computed: {
     getColors: function () {
       return this.$store.state.colors[this.name].available;
+    },
+    getNext: function () {
+      //se la posizione di questo step in cui ci troviamo è minore della lunghezza di steps e se this.next è true allora andiamo a prendere il valore che ci interessa
+      return this.$store.state.steps.indexOf(this.name) <
+        this.$store.state.steps.length && this.next
+        ? this.$store.state.steps[
+            this.$store.state.steps.indexOf(this.name) + 1
+          ]
+        : false;
+    },
+    getPrev: function () {
+      //se lo step in cui ci troviamo ha un valore maggiore di zero allora si può procedere a prendere il suo valore altrimenti restitusice false
+      return this.$store.state.steps.indexOf(this.name) > 0
+        ? this.$store.state.steps[
+            this.$store.state.steps.indexOf(this.name) - 1
+          ]
+        : false;
     },
   },
   methods: {
