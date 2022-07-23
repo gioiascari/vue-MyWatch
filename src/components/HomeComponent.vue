@@ -18,7 +18,10 @@
         <!-- /save -->
         <!-- buy -->
         <div v-else>
-          <h2>Great, time to buy:)</h2>
+          <h2>
+            Great, <br />
+            time to buy
+          </h2>
           <a @click.prevent="goHome">Reset</a>
         </div>
         <!-- /buy -->
