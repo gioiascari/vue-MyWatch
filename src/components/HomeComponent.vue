@@ -8,14 +8,20 @@
         <h2 v-if="name !== 'save' && name !== 'buy'">
           Choose <strong>{{ name | capitalize }} </strong>Color
         </h2>
-        <!-- salvataggio -->
+        <!-- save -->
         <div v-else-if="name === 'save'">
           <h2>Got It!</h2>
           <router-link to="/buy" :style="cssVars" class="btn-save"
             >Save</router-link
           >
         </div>
-        <!-- /salvataggio -->
+        <!-- /save -->
+        <!-- buy -->
+        <div v-else>
+          <h2>Great, time to buy:)</h2>
+          <a @click.prevent="goHome">Reset</a>
+        </div>
+        <!-- /buy -->
       </div>
       <SelectedColor />
     </div>
@@ -54,6 +60,14 @@ export default {
         "--width": this.$store.state.animation[this.name].width,
         "--color-save": this.$store.state.colors.face.selected.color,
       };
+    },
+  },
+  methods: {
+    goHome: function () {
+      this.$store.dispatch("resetColors");
+      this.$store.dispatch("resetSteps");
+
+      this.$router.push({ name: "Home" });
     },
   },
   filters: {
