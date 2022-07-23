@@ -92,6 +92,7 @@ export default {
       minutes: 0,
       seconds: 0,
       hours: 0,
+      date: {},
     };
   },
   computed: {
@@ -104,6 +105,7 @@ export default {
         "--bg-hands": this.$store.state.colors.hands.selected.color,
       };
     },
+    //Time's function
     getSeconds: function () {
       let deg = (this.seconds * 360) / 60;
       return `transform: rotate(${deg}deg);`;
@@ -116,6 +118,19 @@ export default {
       let deg = (this.hours * 360) / 12 + (this.minutes * 60) / 360;
       return `transform: rotate(${deg}deg);`;
     },
+  },
+  created() {
+    setInterval(() => {
+      this.date = new Date();
+      this.minutes = this.date.getMinutes();
+      this.seconds = this.date.getSeconds();
+      this.hours = this.date
+        .toLocaleString("en-US", {
+          hour: "numeric",
+          hour12: true,
+        })
+        .split(" ")[0];
+    }, 1000);
   },
 };
 </script>
